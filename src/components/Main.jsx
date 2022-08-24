@@ -43,7 +43,7 @@ export default function Main() {
                 <p>Es emprendimiento que surgió en un momento muy importante de mi vida, donde necesitaba estar enfocada en algo que despeje mi mente y relaje mis pensamientos. Es ahí donde se despertaron mis deseos, sueños, proyectos y desafíos de hacer algo nuevo que me guste y haga feliz... y poder compartirlo con ustedes...Believe es un lugar donde vas a encontrar productos ideales para decorar y perfumar tu hogar, tu trabajo o tu lugar favorito.</p>
             </Typography>
 
-            <Box sx={{ width: '70%', display: 'flex',flexDirection: 'column', justifyContent: 'center'}}>
+            <Box sx={{ width: '70%', display: 'flex',flexDirection: 'column', justifyContent: 'center', ml: '15%', mr: '15%' }}>
                 <h2>¿Cómo comprar?</h2>
                 <Stepper activeStep={-1} alternativeLabel>
                     {steps.map((label) => (

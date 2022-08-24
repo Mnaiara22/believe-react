@@ -6,18 +6,15 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
-export default function Producto ({item, color, img}) {
+export default function Producto ({item, img}) {
   return (
 
-    
-
-
-    <Card sx={{ maxWidth: 345, bgcolor:"lightpink"}}>
+    <Card sx={{ maxWidth: 345, bgcolor:"lightpink", p: 1, m: 2}}>
       <CardActionArea >
         <CardMedia
           component="img"
           height="auto"
-          image={img}
+          image = {item.img}
           alt={item.name}
         />
         <CardContent sx={{paddingTop: -2}}>
@@ -32,7 +29,7 @@ export default function Producto ({item, color, img}) {
       <CardActions>
 
       <Typography gutterBottom variant="h5" component="div">
-      <p>precio ${item.price}</p>
+      <p>Precio ${item.price}</p>
       </Typography>
 
       <Button size="small" color="primary">
