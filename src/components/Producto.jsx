@@ -21,14 +21,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-export default function Producto ({item, color}) {
+export default function Producto ({item, color, img}) {
   return (
+
+    
+
+
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea >
         <CardMedia
           component="img"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          height="auto"
+          image={img}
           alt={item.name}
         />
         <CardContent>
