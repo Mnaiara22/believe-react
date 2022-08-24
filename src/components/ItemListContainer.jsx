@@ -2,14 +2,15 @@
 
 import React from 'react'
 
-const ItemListContainer = ({saludo}) => {
+const ItemListContainer = ({saludo, img}) => {
     return (
         <div> 
             <br/>
             <br/>
             <br/>
             <br/>
-            <p>{saludo}</p>
+            <img src={img} alt="Logo Believe" height="300px"/>
+            <h1>{saludo}</h1>
         </div>
     )
 }

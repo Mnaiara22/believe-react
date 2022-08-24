@@ -5,6 +5,7 @@ import Producto from './components/Producto';
 import ItemListContainer from './components/ItemListContainer';
 import { ThemeProvider } from '@mui/material';
 import theme from './MuiTheme';
+import Main from './components/Main';
 
 
 
@@ -26,14 +27,14 @@ function App() {
     <div className="App">
       
       <NavBar/>
-      <ItemListContainer saludo={saludo} color={"blue"} />
-
-      <Producto item={producto1} color={"pink"} img={'images/nala.avif'}/>
-      <Producto item={producto2} color={"red"} img={'images/kala.avif'}/>
-      <Producto item={producto3} color={"pink"} img={'images/anna.avif'}/>
-      <Producto item={producto4} color={"red"} img={'images/bella.avif'}/>
-      <Producto item={producto5} color={"pink"} img={'images/duquesa.avif'}/>
-      <Producto item={producto6} color={"red"} img={'images/lilo.avif'}/>
+      <ItemListContainer img={'images/logo.png'} saludo={saludo}/>
+      <Main/>
+      <Producto item={producto1} img={'images/nala.avif'}/>
+      <Producto item={producto2} img={'images/kala.avif'}/>
+      <Producto item={producto3} img={'images/anna.avif'}/>
+      <Producto item={producto4} img={'images/bella.avif'}/>
+      <Producto item={producto5} img={'images/duquesa.avif'}/>
+      <Producto item={producto6} img={'images/lilo.avif'}/>
       </div>
       </ThemeProvider>
     
