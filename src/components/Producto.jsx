@@ -7,7 +7,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
 export default function Producto ({item, img}) {
+
+  //let counter = 0;
+  const [counter, setCounter] = useState (0);
+
+
   return (
+
 
     <Card sx={{ maxWidth: 345, bgcolor:"lightpink", p: 1, m: 2}}>
       <CardActionArea >
@@ -32,8 +38,15 @@ export default function Producto ({item, img}) {
       <p>Precio ${item.price}</p>
       </Typography>
 
-      <Button size="small" color="primary">
-        Comprar
+      <Typography gutterBottom variant="h5" component="div">
+      <p>Contador: {counter}</p>
+      </Typography>
+
+      <Button size="small" color="primary" onClick={()=>{
+        setCounter (counter + 1);
+        console.log (counter)
+              }}> 
+        Comprar / Sumar contador
       </Button>
     </CardActions>
     </Card>
