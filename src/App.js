@@ -12,7 +12,9 @@ import Main from './components/Main';
 import TitleAromas from './components/TitleAromas';
 import Aromas from './components/Aromas';
 import Producto from './components/Producto';
+import ItemCount from './components/ItemCount';
 import Informacion from './components/Informacion';
+
 
 function App() {
 
@@ -29,21 +31,21 @@ function App() {
   let aroma7 = {id:7, title:"Fresias" ,description: "La esencia de Fresias tiene un aroma floral de verano, delicado y dulce,que da una sensación de que todo está bien con el mundo (un pensamiento muy liberador). Transmite inocencia, amistad, felicidad, calma, equilibra las emociones y reduce la fatiga"};
 
   //Productos
-  let producto1 = {id:1, name: "Nala", price: 290, measure: "80cc", linea: "Clásica", img:'/images/nala.avif'};
-  let producto2 = {id:2, name: "Kala", price: 380, measure: "150cc", linea: "Clásica", img:'/images/kala.avif'};
-  let producto3 = {id:3, name: "Anna ", price: 590, measure: "360cc", linea: "Clásica", img:'/images/anna.avif'};
-  let producto4 = {id:4, name: "Bella", price: 795, measure: "150cc", linea: "Romántica", img:'/images/bella.avif'};
-  let producto5 = {id:5, name: "Duquesa", price: 865, measure: "100cc", linea: "Romántica", img:'/images/duquesa.avif'};
-  let producto6 = {id:6, name: "Lilo ", price: 805, measure: "200cc", linea: "Romántica", img:'/images/lilo.avif'};
-  let producto7 = {id:7, name: "Ariel", price: 1350, measure: "100cc", linea: "Romántica", img:'/images/ariel.avif'};
-  let producto8 = {id:8, name: "Ursula", price: 955, measure: "250cc", linea: "Romántica", img:'/images/ursula.avif'};
-  let producto9 = {id:9, name: "Esmeralda ", price: 1450, measure: "200cc", linea: "Romántica", img:'/images/esmeralda.avif'};
-  let producto10 = {id:7, name: "Wendy", price: 600, measure: "80cc", linea: "Moderna", img:'/images/wendy.avif'};
-  let producto11 = {id:8, name: "Apagavelas", price: 400, measure: "", linea: "Moderna", img:'/images/apagavelas.avif'};
-  let producto12 = {id:9, name: "Arendelle ", price: 990, measure: "230cc", linea: "Moderna", img:'/images/arendelle.avif'};
+  let producto1 = {id:1, name: "Nala", price: 290, measure: "80cc", linea: "Clásica", img:'/images/nala.avif', stock: 10};
+  let producto2 = {id:2, name: "Kala", price: 380, measure: "150cc", linea: "Clásica", img:'/images/kala.avif', stock: 8};
+  let producto3 = {id:3, name: "Anna ", price: 590, measure: "360cc", linea: "Clásica", img:'/images/anna.avif', stock: 13};
+  let producto4 = {id:4, name: "Bella", price: 795, measure: "150cc", linea: "Romántica", img:'/images/bella.avif', stock: 15};
+  let producto5 = {id:5, name: "Duquesa", price: 865, measure: "100cc", linea: "Romántica", img:'/images/duquesa.avif', stock: 7};
+  let producto6 = {id:6, name: "Lilo ", price: 805, measure: "200cc", linea: "Romántica", img:'/images/lilo.avif', stock: 3};
+  let producto7 = {id:7, name: "Ariel", price: 1350, measure: "100cc", linea: "Romántica", img:'/images/ariel.avif', stock: 11};
+  let producto8 = {id:8, name: "Ursula", price: 955, measure: "250cc", linea: "Romántica", img:'/images/ursula.avif', stock: 10};
+  let producto9 = {id:9, name: "Esmeralda ", price: 1450, measure: "200cc", linea: "Romántica", img:'/images/esmeralda.avif', stock: 5};
+  let producto10 = {id:7, name: "Wendy", price: 600, measure: "80cc", linea: "Moderna", img:'/images/wendy.avif', stock: 2};
+  let producto11 = {id:8, name: "Apagavelas", price: 400, measure: "", linea: "Moderna", img:'/images/apagavelas.avif', stock: 6};
+  let producto12 = {id:9, name: "Arendelle ", price: 990, measure: "230cc", linea: "Moderna", img:'/images/arendelle.avif', stock: 3};
 
 
-
+ const otrotitulo = 'soy el contador'
   return (
 
     <ThemeProvider theme={theme}>
@@ -88,39 +90,51 @@ function App() {
           <Grid container justifyContent="center" spacing={1}>
             <Grid item xs={12} sm={3}>
               <Producto item={producto1}/>
+              <ItemCount initial={1} stock={producto1.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto2}/>
+              <ItemCount initial={1} stock={producto2.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto3}/>
+              <ItemCount initial={1} stock={producto3.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto4}/>
+              <ItemCount initial={1} stock={producto4.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto5}/>
+              <ItemCount initial={1} stock={producto5.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto6}/>
+              <ItemCount initial={1} stock={producto6.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto7}/>
+              <ItemCount initial={1} stock={producto7.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto8}/>
+              <ItemCount initial={1} stock={producto8.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto9}/>
+              <ItemCount initial={1} stock={producto9.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto10}/>
+              <ItemCount initial={1} stock={producto10.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto11}/>
+              <ItemCount initial={1} stock={producto11.stock}/>
             </Grid>
             <Grid item xs={12} sm={3}>
               <Producto item={producto12}/>
+              <ItemCount initial={1} stock={producto12.stock}/>
             </Grid>
           </Grid>
         </Box>

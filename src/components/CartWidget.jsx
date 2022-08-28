@@ -8,7 +8,7 @@ const CartWidget = ({counter}) => {
             <span>{counter}</span>
         </div>*/
         
-<LocalMallTwoToneIcon color='medium'/>
+<LocalMallTwoToneIcon size='medium'/>
     )
 }
 

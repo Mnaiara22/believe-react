@@ -8,10 +8,6 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function Producto ({item, img}) {
 
-  //let counter = 0;
-  const [counter, setCounter] = useState (0);
-
-
   return (
 
 
@@ -38,16 +34,7 @@ export default function Producto ({item, img}) {
       <p>Precio ${item.price}</p>
       </Typography>
 
-      <Typography gutterBottom variant="h5" component="div">
-      <p>Contador: {counter}</p>
-      </Typography>
 
-      <Button size="small" color="primary" onClick={()=>{
-        setCounter (counter + 1);
-        console.log (counter)
-              }}> 
-        Comprar / Sumar contador
-      </Button>
     </CardActions>
     </Card>
   )}
