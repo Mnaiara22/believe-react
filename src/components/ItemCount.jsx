@@ -14,12 +14,16 @@ const ItemCount = ({initial, stock, onAdd}) => {
             setCounter (counter - 1)}
     }
 
+    const confirm = () => {
+        console.log("Se agrega al carrito");
+    };
+
     return (
         <div>
             <button onClick={subtract}>-</button>
             <span>{counter}</span>
             <button onClick={add}>+</button>
-            <button onClick={onAdd}> Agregar al carrito </button>   
+            <button onClick={confirm}> Agregar al carrito </button>   
         </div>
     )
 }
