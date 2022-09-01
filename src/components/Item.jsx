@@ -4,37 +4,41 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import ItemCount from './ItemCount';
 
+const Item = ({producto}) => {
 
-export default function Producto ({item, img}) {
+const onAdd = () => {
+  console.log("Se agrega al carrito")};
 
   return (
-
 
     <Card sx={{ maxWidth: 345, bgcolor:"lightpink", p: 1, m: 2}}>
       <CardActionArea >
         <CardMedia
           component="img"
           height="auto"
-          image = {item.img}
-          alt={item.name}
+          image = {producto.img}
+          alt={producto.name}
         />
         <CardContent sx={{paddingTop: -2}}>
           <Typography gutterBottom variant="h5" component="div">
-          <p>{item.name}</p>
+          <p>{producto.name}</p>
           </Typography>
           <Typography variant="body2">
-            Vela línea {item.linea} de {item.measure}
+            Vela línea {producto.linea} de {producto.measure}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
 
       <Typography gutterBottom variant="h5" component="div">
-      <p>Precio ${item.price}</p>
+      <p>Precio ${producto.price}</p>
+      <ItemCount initial={0} onAdd={onAdd} stock={producto.stock}/>
       </Typography>
-
-
+      
     </CardActions>
     </Card>
   )}
+
+  export default Item
