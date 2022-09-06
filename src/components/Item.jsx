@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import {CardActionArea, CardActions } from '@mui/material';
 import ItemCount from './ItemCount';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({producto}) => {
+const navigate = useNavigate()
 
-const onAdd = () => {
-  console.log("Se agrega al carrito")};
 
   return (
 
@@ -34,11 +34,13 @@ const onAdd = () => {
 
       <Typography gutterBottom variant="h5" component="div">
       <p>Precio ${producto.price}</p>
-      <ItemCount initial={0} onAdd={onAdd} stock={producto.stock}/>
       </Typography>
-      
+        <div>
+          <button onClick={()=>navigate(`/detalle/${producto.id}`)}>Ver más</button>  
+        </div>
     </CardActions>
     </Card>
   )}
 
   export default Item
+

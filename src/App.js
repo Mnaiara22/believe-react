@@ -1,20 +1,21 @@
 
 import './App.css';
-import { Grid, ThemeProvider } from '@mui/material';
+import { Grid, ThemeProvider } from '@mui/material'; 
 import theme from './MuiTheme';
 import Box from '@mui/material/Box';
 
 
 //Secciones
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import Hero from './components/Hero';
 import Main from './components/Main';
 import TitleAromas from './components/TitleAromas';
 import Aromas from './components/Aromas';
-import Item from './components/Item';
-import ItemList from './components/ItemList';
-import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/ItemListContainer'
 import Informacion from './components/Informacion';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import ItemDetail from './components/ItemDetail';
 
 
 function App() {
@@ -32,20 +33,19 @@ function App() {
   let aroma7 = {id:7, title:"Fresias" ,description: "La esencia de Fresias tiene un aroma floral de verano, delicado y dulce,que da una sensación de que todo está bien con el mundo (un pensamiento muy liberador). Transmite inocencia, amistad, felicidad, calma, equilibra las emociones y reduce la fatiga"};
 
   return (
-
     <ThemeProvider theme={theme}>
+      <BrowserRouter>
+
 
       <div className="App">
 
         <NavBar/>
 
-        <ItemListContainer img={'images/logo.png'} saludo={saludo}/>
-
-        <Main/>
-
-        <TitleAromas img={'images/aromas.png'}/>
-
-        <Box sx={{ flexGrow: 1 }}>
+        <Routes>
+          <Route path='/'element={<Hero img={'images/logo.png'} saludo={saludo}/>}/>
+          <Route path='/main/'element={<Main/>}/>
+          <Route path='/titlearomas/'element={<TitleAromas img={'images/aromas.png'}/>}/>
+          <Route path='/aromas/'element={<Box sx={{ flexGrow: 1 }}>
           <Grid container justifyContent="center" spacing={1}>
             <Grid item xs={12} sm={4}>
               <Aromas item={aroma1} img={'images/coco-vainilla.png'}/> 
@@ -70,22 +70,28 @@ function App() {
             </Grid>
           </Grid>
         </Box>
-
-
-        <Box sx={{ flexGrow: 1 }}>
+}/>
+          <Route path='/measure/:measureId'element={        <Box sx={{ flexGrow: 1 }}>
           <Grid container justifyContent="center" spacing={1}>
 
             <Grid item xs={12} sm={3}>
-              <ItemList/>
+              <ItemListContainer/>
             </Grid>
 
           </Grid>
-        </Box>
+        </Box>}/>
 
-        <Informacion img={'images/fondo.avif'}/>
+          <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+          <Route path='/detalle/:id' element={<Informacion img={'images/fondo.avif'}/>}/>
+        </Routes>
+        
 
       </div>
-    </ThemeProvider>
+    
+
+      </BrowserRouter>
+      </ThemeProvider>
+    
   );
 }
 

@@ -1,18 +1,34 @@
-//Tiene la logica pesada de sus hijos
+import React, { useState, useEffect } from 'react'
+import ItemList from './ItemList'
+import {data} from '../mocks/mockData'
+import { useParams } from 'react-router-dom'
 
-import React from 'react'
+const ItemListContainer = () => {
 
-const ItemListContainer = ({saludo, img}) => {
-    return (
-        <div> 
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <img src={img} alt="Logo Believe" height="300px"/>
-            <h1>{saludo}</h1>
-        </div>
-    )
+    const [listaProductos, setListaProductos] = useState ([])
+    const [loading, setLoading] = useState(false)
+    const{measureId}= useParams()
+
+    useEffect(()=>{
+        setLoading (true)
+        data
+            .then((res)=>{
+            if (measureId){
+                setListaProductos(res.filter((item)=>item.measure === measureId))
+            }else{
+                setListaProductos(res)}
+            })
+            .catch((error)=>console.log(error))
+            .finally (()=> setLoading(false))
+        },[measureId])
+
+        return (
+            <div> 
+                {loading ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos}/>}
+            </div>
+        )
 }
 
 export default ItemListContainer
+
+//Agregar spinner

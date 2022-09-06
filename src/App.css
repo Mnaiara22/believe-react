@@ -33,8 +33,15 @@
 }
 
 ul{ 
-      padding: 50px;
-      margin: 80px;
-      background-color: #ffb2b8b9;
-      list-style:none;      
-  }
+  padding: 50px;
+  margin: 80px;
+  background-color: #ffb2b8b9;
+  list-style:none;      
+}
+
+.cardContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
