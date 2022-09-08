@@ -8,10 +8,11 @@ const ItemDetailContainer = () => {
     const [loading, setLoading]= useState(true)
     const{id}=useParams()
 
-    useEffect(()=>{
-        data
-        .then((res)=> setProductDetail(res.find((item)=> item.id === id)))
-        .catch((error)=> console.log(error))
+    useEffect(()=>{  
+
+        data  
+        .then((res)=> setProductDetail(res.find((item)=> item.id === Number(id))))  
+        .catch((error)=> console.log(error)) 
         .finally(()=> setLoading(false))
     },[id])
 

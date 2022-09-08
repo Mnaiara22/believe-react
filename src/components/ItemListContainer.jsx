@@ -7,20 +7,20 @@ const ItemListContainer = () => {
 
     const [listaProductos, setListaProductos] = useState ([])
     const [loading, setLoading] = useState(false)
-    const{measureId}= useParams()
+    const{lineaId}= useParams()
 
     useEffect(()=>{
         setLoading (true)
         data
             .then((res)=>{
-            if (measureId){
-                setListaProductos(res.filter((item)=>item.measure === measureId))
+            if (lineaId){
+                setListaProductos(res.filter((item)=>item.linea === lineaId))
             }else{
                 setListaProductos(res)}
             })
             .catch((error)=>console.log(error))
             .finally (()=> setLoading(false))
-        },[measureId])
+        },[lineaId])
 
         return (
             <div> 

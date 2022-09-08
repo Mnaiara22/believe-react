@@ -13,11 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from './CartWidget';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { IndeterminateCheckBoxOutlined } from '@mui/icons-material';
 
-const pages = ['Home', 'Aromas', 'Modelos', 'Fotos', 'Información', 'Contacto'];
 
-export default function NavBar() {
+const pages = [{enlace:'/aromas', nombre:'Aromas'}, {enlace:'/linea/clasica', nombre:'Clásica'}, {enlace:'/linea/romantica', nombre:'Romántica'}, {enlace:'/categoria/moderna', nombre:'Moderna'}, {enlace:'/informacion', nombre:'Información'}];
+
+const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -40,11 +42,12 @@ export default function NavBar() {
     <AppBar position="fixed" className='header'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <NavLink to='/' className='links'>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -54,9 +57,12 @@ export default function NavBar() {
               color: 'inherit',
               textDecoration: 'none',
             }}
-          >
-            <img src='/believe.png' alt='Believe logo' className='logo'/> 
+          >              
+          <img src='/believe.png' alt='Believe logo' className='logo'/> 
+
           </Typography>
+          </NavLink>
+
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -87,13 +93,14 @@ export default function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem key={IndeterminateCheckBoxOutlined} onClick={handleCloseNavMenu}>
+                <NavLink className='links' to={page.enlace}>{page.nombre}</NavLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -110,22 +117,19 @@ export default function NavBar() {
               textDecoration: 'none',
             }}
 >
-
-<img src='/believe.png' alt='Believe logo' className='logo'/> 
-
+<NavLink to='/'>
+  <img src='/believe.png' alt='Believe logo' className='logo'/> 
+</NavLink>
             
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+
+<Menu >
+          {pages.map((page) => (
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <NavLink style={{color:'red'}} to={page.enlace}>{page.nombre}</NavLink>
+                </MenuItem>
+              ))}
+          </Menu>
 
 <CartWidget/>
         </Toolbar>
@@ -133,6 +137,6 @@ export default function NavBar() {
     </AppBar>
   );
 };
-
+export default NavBar;
 
 

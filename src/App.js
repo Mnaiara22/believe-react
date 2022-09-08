@@ -33,66 +33,64 @@ function App() {
   let aroma7 = {id:7, title:"Fresias" ,description: "La esencia de Fresias tiene un aroma floral de verano, delicado y dulce,que da una sensación de que todo está bien con el mundo (un pensamiento muy liberador). Transmite inocencia, amistad, felicidad, calma, equilibra las emociones y reduce la fatiga"};
 
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
 
+    <ThemeProvider theme={theme}>
 
       <div className="App">
-
-        <NavBar/>
-
-        <Routes>
-          <Route path='/'element={<Hero img={'images/logo.png'} saludo={saludo}/>}/>
-          <Route path='/main/'element={<Main/>}/>
-          <Route path='/titlearomas/'element={<TitleAromas img={'images/aromas.png'}/>}/>
-          <Route path='/aromas/'element={<Box sx={{ flexGrow: 1 }}>
-          <Grid container justifyContent="center" spacing={1}>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma1} img={'images/coco-vainilla.png'}/> 
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma2} img={'/images/gardenia.png'}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>        
-              <Aromas item={aroma3} img={'/images/lima-limon.png'}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma4} img={'/images/rosa-miel.png'}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma5} img={'/images/lavanda.png'}/>
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma6} img={'/images/jazmin.png'}/>      
-            </Grid>
-            <Grid item xs={12} sm={4}>
-              <Aromas item={aroma7} img={'/images/fresia.png'}/>
-            </Grid>
-          </Grid>
-        </Box>
-}/>
-          <Route path='/measure/:measureId'element={        <Box sx={{ flexGrow: 1 }}>
-          <Grid container justifyContent="center" spacing={1}>
-
-            <Grid item xs={12} sm={3}>
-              <ItemListContainer/>
-            </Grid>
-
-          </Grid>
-        </Box>}/>
-
-          <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
-          <Route path='/detalle/:id' element={<Informacion img={'images/fondo.avif'}/>}/>
-        </Routes>
+          <BrowserRouter>
+          <NavBar/>
         
+            <Routes>
+              <Route path='/' element= {<Hero img={'images/logo.png'}  saludo={saludo}/>}/>
+              <Route path='/introduccion' element= {<Main/>}/>
+              <Route path='/aromas' element= {<TitleAromas img={'images/aromas.png'}/>}/>
+              
+              <Route path='/aromas/'element={
+                <Box sx={{ flexGrow: 1 }}>
+                  <Grid container justifyContent="center" spacing={1}>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma1} img={'images/coco-vainilla.png'}/> 
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma2} img={'/images/gardenia.png'}/>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>        
+                      <Aromas item={aroma3} img={'/images/lima-limon.png'}/>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma4} img={'/images/rosa-miel.png'}/>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma5} img={'/images/lavanda.png'}/>
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma6} img={'/images/jazmin.png'}/>      
+                    </Grid>
+                    <Grid item xs={12} sm={4}>
+                      <Aromas item={aroma7} img={'/images/fresia.png'}/>
+                    </Grid>
+                  </Grid>
+                </Box>
+                }/>
+              <Route path='/linea/:/lineaID' element={<ItemListContainer/>}/>
+              <Route path='/measure/:measureId'element={        
+                <Box sx={{ flexGrow: 1 }}>
+                  <Grid container justifyContent="center" spacing={1}>
+                    <Grid item xs={12} sm={3}>
+                      <ItemListContainer/>
+                    </Grid>
+                  </Grid>
+                </Box>}/>
+                <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
+                <Route path='/detalle/:id' element={<Informacion img={'images/fondo.avif'}/>}/>
+            </Routes>
+        </BrowserRouter>
 
       </div>
-    
 
-      </BrowserRouter>
-      </ThemeProvider>
-    
+    </ThemeProvider>
   );
+
 }
 
 export default App;
