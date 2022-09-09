@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ItemList from './ItemList'
+import Hero from './Hero'
 import {data} from '../mocks/mockData'
 import { useParams } from 'react-router-dom'
 
@@ -22,8 +23,11 @@ const ItemListContainer = () => {
             .finally (()=> setLoading(false))
         },[lineaId])
 
+          //Bienvenida
+  const saludo = "Bienvenidos a Believe"
         return (
             <div> 
+                <Hero img={'images/logo.png'} saludo={saludo}  />
                 {loading ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos}/>}
             </div>
         )

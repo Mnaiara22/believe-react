@@ -17,7 +17,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { IndeterminateCheckBoxOutlined } from '@mui/icons-material';
 
 
-const pages = [{enlace:'/aromas', nombre:'Aromas'}, {enlace:'/linea/clasica', nombre:'Clásica'}, {enlace:'/linea/romantica', nombre:'Romántica'}, {enlace:'/categoria/moderna', nombre:'Moderna'}, {enlace:'/informacion', nombre:'Información'}];
+const pages = [{enlace:'/aromas', nombre:'Aromas'}, {enlace:'/category/clasica', nombre:'Clásica'}, {enlace:'/category/romantica', nombre:'Romántica'}, {enlace:'/category/moderna', nombre:'Moderna'}, {enlace:'/informacion', nombre:'Información'}];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,7 +42,6 @@ const NavBar = () => {
     <AppBar position="fixed" className='header'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
         <NavLink to='/' className='links'>
           <Typography
             variant="h6"
@@ -94,13 +93,12 @@ const NavBar = () => {
               }}
             >
               {pages.map((page, index) => (
-                <MenuItem key={IndeterminateCheckBoxOutlined} onClick={handleCloseNavMenu}>
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
                 <NavLink className='links' to={page.enlace}>{page.nombre}</NavLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -123,13 +121,13 @@ const NavBar = () => {
             
           </Typography>
 
-<Menu >
+
           {pages.map((page) => (
                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                <NavLink style={{color:'red'}} to={page.enlace}>{page.nombre}</NavLink>
+                <NavLink style={{color:'white', textDecoration:'none'}} to={page.enlace}>{page.nombre}</NavLink>
                 </MenuItem>
               ))}
-          </Menu>
+       
 
 <CartWidget/>
         </Toolbar>
