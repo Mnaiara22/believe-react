@@ -127,7 +127,7 @@ const NavBar = () => {
                 <NavLink style={{color:'white', textDecoration:'none'}} to={page.enlace}>{page.nombre}</NavLink>
                 </MenuItem>
               ))}
-       
+
 
 <CartWidget/>
         </Toolbar>

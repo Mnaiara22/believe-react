@@ -36,7 +36,7 @@ function App() {
               <Route path='/' element= {<ItemListContainer/>}/>
               <Route path='/introduccion' element= {<Main/>}/>
               <Route path='/aromas' element= {<AromasContainer/>}/>
-              <Route path='/categoty/:lineaId'element={<ItemDetailContainer/>}/>
+              <Route path='/category/:lineaId'element={<ItemListContainer/>}/>
               <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
               <Route path='/info' element={<Informacion img={'images/fondo.avif'}/>}/>
             </Routes>

@@ -27,7 +27,7 @@ const ItemListContainer = () => {
   const saludo = "Bienvenidos a Believe"
         return (
             <div> 
-                <Hero img={'images/logo.png'} saludo={saludo}  />
+                <Hero img={'/images/logo.png'} saludo={saludo}  />
                 {loading ? <p>Cargando...</p> : <ItemList listaProductos={listaProductos}/>}
             </div>
         )

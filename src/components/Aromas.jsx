@@ -10,9 +10,12 @@ export default function Aromas({item, img}) {
     return (
     
         <Accordion sx={{ p: 5, m: 5, bgcolor:"lightpink", width: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+        
             <AccordionSummary sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}
                 expandIcon={<ExpandMoreIcon />}
                 >
+                
+
                 <CardMedia sx={{ maxWidth: 300, }}
                     component="img"
                     image= {img}
