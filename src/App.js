@@ -17,6 +17,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetail from './components/ItemDetail';
 import AromasContainer from './components/AromasContainer';
+import Cart from './components/Cart'
 
 
 function App() {
@@ -33,12 +34,13 @@ function App() {
           <NavBar/>
         
             <Routes>
-              <Route path='/' element= {<ItemListContainer/>}/>
+              <Route path='/' element= {<ItemListContainer/> }/>
               <Route path='/introduccion' element= {<Main/>}/>
               <Route path='/aromas' element= {<AromasContainer/>}/>
               <Route path='/category/:lineaId'element={<ItemListContainer/>}/>
               <Route path='/detalle/:id' element={<ItemDetailContainer/>}/>
-              <Route path='/info' element={<Informacion img={'images/fondo.avif'}/>}/>
+              <Route path='/informacion' element={<Informacion img={'images/fondo.avif'}/>}/>
+              <Route path='/cart' element={<Cart/>}/>
             </Routes>
         </BrowserRouter>
 

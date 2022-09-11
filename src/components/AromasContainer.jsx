@@ -4,7 +4,7 @@ import Aromas from "./Aromas";
 import { Grid } from "@mui/material";
 import { Box } from "@mui/system";
 
-const AromasContainer = () => {
+const AromasContainer = ({listaAromas}) => {
 
       //Aromas
   let aroma1 = {id:1, title:"Coco Vainilla" ,description: "La esencia de coco es ideal para aquellas personas que sufren de ataques de ansiedad, ya que consigue nivelar las fuerzas positivas y negativas con su suave aroma.También atrae los buenos amigos y endulza los ambientes. La esencia de vainilla, se considera un aroma espiritualmente tranquilo. Ideal para las personas muy nerviosas, produce un efecto balsámico contra la ansiedad.La vainilla es aromatizante, antidepresiva y calmante."};
@@ -16,6 +16,7 @@ const AromasContainer = () => {
   let aroma7 = {id:7, title:"Fresias" ,description: "La esencia de Fresias tiene un aroma floral de verano, delicado y dulce,que da una sensación de que todo está bien con el mundo (un pensamiento muy liberador). Transmite inocencia, amistad, felicidad, calma, equilibra las emociones y reduce la fatiga"};
 
     return(
+
         <div>
             <TitleAromas img={'images/aromas.png'}/>
                 <Box sx={{ flexGrow: 1 }}>
