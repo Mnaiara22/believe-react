@@ -18,11 +18,11 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetail from './components/ItemDetail';
 import AromasContainer from './components/AromasContainer';
 import Cart from './components/Cart'
-
+import {CartProvider} from '/context/CartContext'
 
 function App() {
 
-
+const saludo = ""
 
 
   return (
@@ -30,6 +30,7 @@ function App() {
     <ThemeProvider theme={theme}>
 
       <div className="App">
+          <CartProvider>
           <BrowserRouter>
           <NavBar/>
         
@@ -43,7 +44,7 @@ function App() {
               <Route path='/cart' element={<Cart/>}/>
             </Routes>
         </BrowserRouter>
-
+        </CartProvider>
       </div>
 
     </ThemeProvider>

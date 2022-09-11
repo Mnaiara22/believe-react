@@ -7,6 +7,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Aromas({item, img}) {
+
     return (
     
         <Accordion sx={{ p: 5, m: 5, bgcolor:"lightpink", width: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
@@ -28,6 +29,7 @@ export default function Aromas({item, img}) {
                     {item.description}
                 </Typography>
             </AccordionDetails>
+
         </Accordion>
 
     );

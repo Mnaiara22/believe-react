@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Item = ({producto}) => {
 
-const {id, name, price, measure, linea, img, stock}=producto
-const navigate = useNavigate()
+  const {id, name, price, measure, linea, img, stock}=producto
+  const navigate = useNavigate()
 
 
   return (
@@ -22,26 +22,29 @@ const navigate = useNavigate()
           image = {img}
           alt={name}
         />
+
         <CardContent sx={{paddingTop: -2}}>
           <Typography gutterBottom variant="h5" component="div">
-          <p>{name}</p>
+            <p>{name}</p>
           </Typography>
           <Typography variant="body2">
             Vela línea {linea} de {measure}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
 
-      <Typography gutterBottom variant="h5" component="div">
-      <p>Precio ${price}</p>
-      </Typography>
+      <CardActions>
+        <Typography gutterBottom variant="h5" component="div">
+          <p>Precio ${price}</p>
+        </Typography>
         <div>
           <button onClick={()=>navigate(`/detalle/${id}`)}>Ver más</button>  
         </div>
-    </CardActions>
+      </CardActions>
     </Card>
-  )}
 
-  export default Item
+  )
+}
+
+export default Item
 

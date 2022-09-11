@@ -24,7 +24,7 @@ const ItemListContainer = () => {
         },[lineaId])
 
           //Bienvenida
-  const saludo = "Bienvenidos a Believe"
+    const saludo = "Bienvenidos a Believe"
         return (
             <div> 
                 <Hero img={'/images/logo.png'} saludo={saludo}  />

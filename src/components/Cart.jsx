@@ -1,9 +1,13 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
 
 const Cart = () => {
-    return (
+    const {cart} = useCart()
+
+    console.log('carrito', cart)
+        return (
         <div>Cart</div>
-    )
+        )
 }
 
 export default Cart
