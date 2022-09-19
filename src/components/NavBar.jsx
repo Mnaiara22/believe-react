@@ -128,8 +128,10 @@ const NavBar = () => {
                 </MenuItem>
               ))}
 
+<NavLink to='/cart' style={{color:'white', textDecoration:'none'}} >
+    <CartWidget/>
+</NavLink>
 
-<CartWidget/>
         </Toolbar>
       </Container>
     </AppBar>

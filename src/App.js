@@ -18,7 +18,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetail from './components/ItemDetail';
 import AromasContainer from './components/AromasContainer';
 import Cart from './components/Cart'
-import {CartProvider} from '/context/CartContext'
+import {CartProvider} from './context/CartContext'
 
 function App() {
 

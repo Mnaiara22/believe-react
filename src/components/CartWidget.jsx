@@ -1,14 +1,14 @@
 import React from 'react';
 import LocalMallTwoToneIcon from '@mui/icons-material/LocalMallTwoTone';
+import { useCart } from '../context/CartContext';
 
-const CartWidget = ({counter}) => {
+const CartWidget = () => {
+    const{cartQuantity} =useCart()
     return(
-        /*<div>
-            <span></span>
-            <span>{counter}</span>
-        </div>*/
-        
-        <LocalMallTwoToneIcon size='medium'/>
+        <div>
+            <LocalMallTwoToneIcon size='medium'/>
+            <span>{cartQuantity() || ''}</span>
+        </div>
     )
 }
 

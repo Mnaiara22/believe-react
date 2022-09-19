@@ -7,7 +7,7 @@ const ItemDetail = ({productDetail}) => {
     const [counter, setCounter] = useState(1)
     const [purchase, setPurchase] = useState(false)
     const {name, measure, price, stock, img, id}= productDetail
-    const navigate = useNavigate ()
+    const navigate = useNavigate()
     const {addItem} = useCart()
 
     const onAdd = () => {
