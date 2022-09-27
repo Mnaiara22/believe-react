@@ -10,12 +10,17 @@ const ItemListContainer = () => {
 
     const [productList, setProductList] = useState ([])
     const [loading, setLoading] = useState(false)
-    const{ listId }= useParams()
+    const{ lineaId }= useParams()
+
+
 
     //Firebase
+
     useEffect(()=>{
+
         setLoading(true)
-        const products = listId ?query(collection(db, "products"), where("list", "==", listId) ) : collection (db, "products")
+        const products = lineaId ?query(collection(db, "products"), where("list", "==",  lineaId) ) : collection (db, "products")
+        
         getDocs (products)
         .then((result)=> {
             const list = result.docs.map((product)=>{
@@ -24,11 +29,13 @@ const ItemListContainer = () => {
                     ...product.data()
                 }
             })
-            setProductList(list)
+
+        setProductList(list)
+
         })
         .catch((error)=> console.log (error))
         .finally(()=>setLoading(false))
-    }, [])
+    }, [lineaId])
 
 /*
     //Mock

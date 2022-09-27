@@ -1,17 +1,23 @@
 import { createContext, useContext, useState } from "react";
+import { useLocalStorage } from "../useLocalStorage";
+
 
 export const CartContext = createContext();
 
 export const CartProvider = ({children}) => {
-    const [cart, setCart] = useState ([])
+    const [cart, setCart] = localStorage('cart', []);
 
     const addItem = (item) => {
         const existsInCart = cart.find((prod)=> prod.id === item.id)
         if(existsInCart){
             const updatedCart = cart.map((prod)=> {
                 if (prod.id === item.id){
-                    return {...prod, quantity:prod.quantity + item.quantity}
-                } else {
+                        if(prod.quantity + item.quantity <= prod.stock){
+                        return {...prod, quantity:prod.quantity + item.quantity}
+                    }else{
+                        <p>No tenemos tanto stock de este producto. Maximo ${prod.stock}</p>
+                        return {...prod, quantity:prod.stock}
+                    }
                     return prod
                 }
             })
