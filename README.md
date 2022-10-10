@@ -8,12 +8,15 @@ You may find that I use:
 🟣 Firebase: Database and hosting.
 
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 react": "18.2.0"
 firebase": "9.10.0",
 JS: ES6
 CSS
 
+
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 COMMANDS
 
 Create a new React app npx create-react-app name
