@@ -2,6 +2,10 @@ This is my project from the React course at Coderhouse 🚀. It is the ecommerce
 
 Link: https://believe-react.firebaseapp.com/
 
+
+![rec-screen](https://user-images.githubusercontent.com/99505239/194965341-5c26df4b-e4de-44b7-8181-4af73ea8ca5b.gif)
+
+
 You may find that I use:
 
 🟣 MUI as a library, I consider that it is very complete and makes the aesthetics look professional.
