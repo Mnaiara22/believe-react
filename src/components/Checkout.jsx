@@ -5,8 +5,8 @@ import { useCart } from '../context/CartContext'
 import { useNavigate } from 'react-router-dom'
 import { Toolbar } from '@mui/material'
 
-
 const Checkout = () => {
+
     const [buyer, setBuyer]= useState({})
     const {cart, cartTotal, clear} = useCart()
     const [orderId, setOrderId]= useState('')
@@ -18,34 +18,36 @@ const Checkout = () => {
         setBuyer({
             ...buyer,
             [e.target.name]:e.target.value
-    })
+        })
     }
+
+
 
     const finish = (e) =>{
         e.preventDefault()
-        if(Object.values(buyer).length !==3){
-            setMessage(true)
-        }else{
+        if(Object.values(buyer).length === 3){
             setMessage(false)
             setLoader(true)
-        }
-        const sales = collection(db, "orders")
-        addDoc(sales, {
-            buyer,
-            items: cart,
-            total: cartTotal(),
-            date: serverTimestamp()
-        })
+            const sales = collection(db, "orders")
+            addDoc(sales, {
+                buyer,
+                items: cart,
+                total: cartTotal(),
+                date: serverTimestamp()
+            })
         .then((res)=>{
             setOrderId(res.id)
             clear()
         })
         .catch((error)=> console.log(error))
         .finally(()=> setLoader(false))
+        }else{
+            setMessage(true)
+        }
     }
 
     if(loader){
-    return <p>Cargading...</p>
+        return <p>Cargading...</p>
     }
     return (
         <div>
@@ -54,9 +56,7 @@ const Checkout = () => {
                 <h2>Checkout</h2>
                 <h4>Por favor complete todos los campos</h4>
                 <form style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column'}} onSubmit={finish}>
-                
                     <input className="form-control" type="text" placeholder='Nombre y Apellido' name="name" onChange={buyerData}/>
-            
                     <input className="form-control"  type="number" placeholder='011587892545' name="phone" onChange={buyerData}/>
                     <input className="form-control" type="email" placeholder='pepe@gmail.com' name="email" onChange={buyerData}/>
                     <button className="btn btn-primary" type='submit'>Finalizar Compra</button>
@@ -67,7 +67,6 @@ const Checkout = () => {
             <div>
                 <Toolbar />
                 <Toolbar />
-
                 <h2>Muchas gracias por su compra!</h2>
                 <h4>Su orden es: {orderId}</h4>
                 <button className="btn btn-success" onClick={()=> navigate('/')}>Volver</button>
@@ -77,4 +76,3 @@ const Checkout = () => {
 }
 
 export default Checkout
-

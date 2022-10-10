@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import ItemCount from './ItemCount'
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { Toolbar } from '@mui/material'
+
 
 const ItemDetail = ({productDetail}) => {
     const [counter, setCounter] = useState(1)
@@ -25,6 +27,7 @@ const ItemDetail = ({productDetail}) => {
     
     return (
         <div style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center', padding:'3rem'}}>
+            <Toolbar />
             <h2>Detalle de: {name}</h2>
             <img src={img} alt={name} style={{width:'25rem'}}/>
             <p>{measure}</p>

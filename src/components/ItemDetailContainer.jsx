@@ -1,15 +1,15 @@
 import { collection, doc, getDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { data } from '../mocks/mockData'
 import ItemDetail from './ItemDetail'
 import {db} from '../firebase/firebase'
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress'
 
 const ItemDetailContainer = () => {
     const [productDetail, setProductDetail]= useState({})
     const [loading, setLoading]= useState(true)
     const{id}=useParams()
-
 
 useEffect(()=>{
     const productCollection = collection(db, "products")
@@ -27,22 +27,16 @@ useEffect(()=>{
 }, [])
 
 
-
-  /*  useEffect(()=>{  
-
-        data  
-        .then((res)=> setProductDetail(res.find((item)=> item.id === Number(id))))  
-        .catch((error)=> console.log(error)) 
-        .finally(()=> setLoading(false))
-    },[id])*/
-
     return (
         <div>
-        {loading ? <p>Cargando...</p> : <ItemDetail productDetail={productDetail}/>}
+        {loading ? 
+            <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
+                <CircularProgress color="inherit" />
+            </Stack> 
+            : 
+            <ItemDetail productDetail={productDetail}/>}
         </div>
     )
 }
 
 export default ItemDetailContainer
-
-//poner un spinner
